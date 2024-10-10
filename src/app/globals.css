@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    overflow-wrap: break-word; /* Fallback for wider support */
+    text-wrap: balance; /* Experimental feature */
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
