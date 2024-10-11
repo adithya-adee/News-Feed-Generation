@@ -27,7 +27,7 @@ export default function RootLayout({
               <RedirectToSignIn />
             </SignedOut>
             <SignedIn>
-              <div className="absolute top-6 right-8 z-50">
+              <div className="absolute top-20 left-4 z-50">
                 <UserButton />
               </div>
               <main>{children}</main>

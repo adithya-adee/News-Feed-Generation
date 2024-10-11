@@ -7,6 +7,150 @@ import Card from "@/components/ui/card";
 import { useUser } from "@clerk/nextjs";
 import { sendContent } from "../api/sendConent";
 
+// const sampleArticles = [
+//   {
+//     title: "Sample Article 1",
+//     description: "This is a description for sample article 1.",
+//     url: "https://example.com/article1",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 2",
+//     description: "This is a description for sample article 2.",
+//     url: "https://example.com/article2",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 3",
+//     description:
+//       "This is a description for sample article 3.afs;jjlsjaljsldfjsjdaljf;ajfjlsajf;as;jdfjad;fjsd;",
+//     url: "https://example.com/article3",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 4",
+//     description: "This is a description for sample article 4.",
+//     url: "https://example.com/article4",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+//   {
+//     title: "Sample Article 5",
+//     description: "This is a description for sample article 5.",
+//     url: "https://example.com/article5",
+//     urlToImage:
+//       "https://media.cnn.com/api/v1/images/stellar/prod/2024-10-08t123501z-621383450-rc2agaayqjaj-rtrmadp-3-israel-palestinians-lebanon-20241010213710535.JPG?c=16x9&q=w_800,c_fill",
+//   },
+// ];
+
 export default function News({
   searchParams,
 }: {
@@ -42,7 +186,10 @@ export default function News({
       }
 
       // const apiKey = process.env.NEXT_PUBLIC_NEWS_API;
-      const url = `https://newsapi.org/v2/everything?q=${query}&pageSize=20&language=en&sortBy=popularity&apiKey=${apiKey}`;
+      const url =
+        category === "everything"
+          ? `https://newsapi.org/v2/everything?q=${query}&pageSize=20&language=en&sortBy=popularity&apiKey=${apiKey}`
+          : `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
       const newsResponse = await axios.get(url);
       setArticles(newsResponse.data.articles);
@@ -53,6 +200,7 @@ export default function News({
       setLoading(false);
     }
   };
+
   useEffect(() => {
     setQuery(searchParams?.query || "all");
     setCategory(searchParams?.category || "everything");
@@ -71,7 +219,7 @@ export default function News({
   return (
     <div className="space-y-0">
       <Navbar />
-      <div className="flex flex-wrap py-4 justify-center gap-x-3 bg-gradient-to-b from-gray-200 to white">
+      <div className="flex flex-wrap flex-grow py-4 justify-center gap-x-3 bg-gradient-to-b from-gray-300 to white">
         {error && <p className="text-red-500">{error}</p>}
         {loading ? (
           <p>Loading articles...</p>
@@ -88,7 +236,17 @@ export default function News({
             </div>
           ))
         ) : (
-          <p>No articles to display</p>
+          articles.map((article, index) => (
+            <div key={index} className="w-full sm:w-1/2 md:w-1/4 lg:w-1/5 p-2">
+              <Card
+                imageUrl={article.urlToImage}
+                title={article.title}
+                description={article.description || "No description available"}
+                link={article.url}
+                onClick={() => sendContent(userId, article.description)}
+              />
+            </div>
+          ))
         )}
       </div>
     </div>
