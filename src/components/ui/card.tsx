@@ -5,9 +5,16 @@ interface CardProps {
   description: string;
   link: string;
   imageUrl: string;
+  onClick: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, link, imageUrl }) => {
+const Card: React.FC<CardProps> = ({
+  title,
+  description,
+  link,
+  imageUrl,
+  onClick,
+}) => {
   return (
     <div className=" p-6 bg-white border border-gray-200 rounded-lg shadow-md shadow-gray-200 space-y-0 transition-transform duration-150 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-gray-300 dark:bg-gray-800 dark:border-gray-700">
       <img
@@ -25,6 +32,9 @@ const Card: React.FC<CardProps> = ({ title, description, link, imageUrl }) => {
       </p>
       <a
         href={link}
+        onClick={onClick}
+        target="_blank"
+        rel="noopener noreferrer"
         className="mt-2 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Read Article

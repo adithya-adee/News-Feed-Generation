@@ -1,13 +1,39 @@
 "use client";
 
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
-export default function NewsRedirectButton() {
+interface NewsRedirectButtonProps {
+  userId: string;
+  email: string;
+  name: string;
+}
+
+export default function NewsRedirectButton({
+  userId,
+  email,
+  name,
+}: NewsRedirectButtonProps) {
   const router = useRouter();
 
-  const handleRedirect = (): void => {
-    router.push("/news");
+  const handleRedirect = async (): Promise<void> => {
+    try {
+      const response = await axios.post("http://localhost:8080/createuser", {
+        userId,
+        email,
+        name,
+      });
+
+      if (response.status !== 200) {
+        throw new Error("Failed to create user");
+      }
+
+      console.log(response.data.message);
+      router.push("/news");
+    } catch (error) {
+      console.error("Error creating user:", error);
+    }
   };
 
   return (

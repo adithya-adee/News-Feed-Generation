@@ -1,5 +1,4 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
-
 import NewsRedirectButton from "@/components/newsRedirectButton";
 
 export default async function Home() {
@@ -23,15 +22,13 @@ export default async function Home() {
   }
 
   const email =
-    user?.emailAddresses[0].emailAddress ?? "no email address availble";
-  console.log(email);
-
-  const fullName = user?.firstName + " " + user?.lastName;
+    user?.emailAddresses[0].emailAddress ?? "no email address available";
+  const fullName = `${user?.firstName} ${user?.lastName}`;
 
   return (
-    <div className="flex justify-center items-center justify-items-center flex-col min-h-screen p-8 pb-20 ">
-      <h1 className="m-2">Hellow {fullName}</h1>
-      <NewsRedirectButton />
+    <div className="flex justify-center items-center flex-col min-h-screen p-8 pb-20">
+      <h1 className="m-2">Hello {fullName}</h1>
+      <NewsRedirectButton userId={userId} email={email} name={fullName} />
     </div>
   );
 }
