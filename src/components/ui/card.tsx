@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "./button";
 
 interface CardProps {
   title: string;
@@ -15,8 +14,7 @@ const Card: React.FC<CardProps> = ({ title, description, link, imageUrl }) => {
         src={imageUrl}
         alt={title}
         className="w-full h-32 object-cover rounded-t-lg"
-      />{" "}
-      {/* Corrected the image tag */}
+      />
       <a href={link}>
         <h5 className="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
           {title}
