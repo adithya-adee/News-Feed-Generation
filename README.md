@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# News Feed Generation Website
+
+Welcome to the News Feed Generation Website! This application aggregates news articles from various sources and provides users with a personalized news reading experience.
+
+## Features
+
+- Fetches news articles from the News API based on user-selected categories and search queries.
+- User authentication and profile management using Clerk API.
+- User interest tracking through keyword management.
+- Responsive design for optimal viewing on different devices.
+
+## Technologies Used
+
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **APIs**: News API, Clerk API
+
+## Prerequisites
+
+Ensure you have the following installed on your machine:
+
+- Node.js (version >= 14)
+- npm or yarn
+- MongoDB instance (local or cloud)
 
 ## Getting Started
 
-First, run the development server:
+### Clone the Repository
 
 ```bash
+git clone https://github.com/yourusername/news-feed-generation.git
+cd news-feed-generation
+```
+
+Environment Variables
+Create a .env.local file in the root directory and add the following variables:
+```bash
+Copy code
+NEXT_PUBLIC_NEWS_API=your_news_api_key
+CLERK_API_KEY=your_clerk_api_key
+
+NEXT_PUBLIC_NEWS_API = your_news_api
+
+DATABASE_URL=your_mongo_atlas_url
+```
+
+Install Dependencies
+Run the following command to install the required dependencies:
+```bash
+Copy code
+
+npm install
+# or
+yarn install
+```
+Running the Application
+
+Start the development server with:
+```bash
+cd server
+nodemon app.js
+```
+To start with the frontend Next Js application
+
+```bash
+Copy code
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Open your browser and navigate to http://localhost:3000 to view the application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Contributing
+Contributions are welcome! If you have suggestions for improvements or find bugs, please create an issue or submit a pull request.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Acknowledgements
+News API for providing the news articles.
+Clerk for user authentication and management.
+sql
+Copy code
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feel free to replace placeholders like `yourusername` and `your_news_api_key` with actua
