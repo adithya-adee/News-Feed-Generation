@@ -6,7 +6,7 @@ Welcome to the News Feed Generation Website! This application aggregates news ar
 
 - Fetches news articles from the News API based on user-selected categories and search queries.
 - User authentication and profile management using Clerk API.
-- User interest tracking through keyword management.
+- User interest tracking through keyword management.(The keyBERT library extracts the keywords form articles description and stores it in your database. When logged in it shows ur preference from the last 2 searches or clicked article.)
 - Responsive design for optimal viewing on different devices.
 
 ## Technologies Used
@@ -29,8 +29,8 @@ Ensure you have the following installed on your machine:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/news-feed-generation.git
-cd news-feed-generation
+https://github.com/adithya-adee/News-Feed-Generation.git
+cd news-feed-generation-main
 ```
 
 Environment Variables
@@ -45,12 +45,6 @@ NEXT_PUBLIC_NEWS_API = your_news_api
 DATABASE_URL=your_mongo_atlas_url
 ```
 
-Create a .env file in the server directory and add the following variables:
-```bash
-REDIS_PORT=6379
-REDIS_HOST=127.0.0.1
-```
-
 Install Dependencies
 Run the following command to install the required dependencies:
 ```bash
@@ -58,15 +52,17 @@ npm install
 # or
 yarn install
 ```
-Running the Application
+# Running the Application
 
-Start the development server with:
+Your have to create 2 terminal ( one with development server and other with Next Js running on it )
+
+1. Start the development server with:
 ```bash
 cd server
 nodemon app.js
 ```
 
-To start with the frontend Next Js application
+2. To start with the frontend Next Js application
 
 ```bash
 
@@ -74,7 +70,8 @@ npm run dev
 # or
 yarn dev
 ```
-Open your browser and navigate to http://localhost:3000 to view the application.
+
+Open your browser and navigate to http://localhost:3000 to view the application (i.e frontend Next Js running).
 
 # Contributing
 Contributions are welcome! If you have suggestions for improvements or find bugs, please create an issue or submit a pull request.
@@ -89,3 +86,7 @@ MongoDb
 
 ##
 Feel free to replace placeholders like `yourusername` and `your_news_api_key` with actual values relevant to your project.
+
+I wanted to add some more details like calender, from which date the news can be accessed.
+I wanted to add more responsiveness and animation , because fo time contraint I have done it in 2 and half days.
+I wanted to add some more functionality like button for sports and business. I had added it but because of styling or responsiveness I have removed it
