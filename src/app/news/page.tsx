@@ -166,6 +166,7 @@ export default function News({
   const [category, setCategory] = useState<string>("everything");
   const [query, setQuery] = useState<string>("all");
   const userId = localStorage.getItem("userId");
+  const [isInitialSearch, setIsInitialSearch] = useState(true);
 
   const handleUserCheck = async () => {
     setLoading(true);
@@ -177,18 +178,20 @@ export default function News({
       const keywords = response.data ?? [];
 
       let searchQuery = "";
-      if (keywords.length > 0) {
+      if (keywords.length > 0 && isInitialSearch) {
         const sp = keywords.slice(-2);
         searchQuery = sp.join(" ");
+        setIsInitialSearch(false);
+        console.log(searchQuery);
       } else {
         searchQuery = query;
         console.log(searchQuery);
       }
 
-      // const apiKey = process.env.NEXT_PUBLIC_NEWS_API;
+      const apiKey = process.env.NEXT_PUBLIC_NEWS_API;
       const url =
         category === "everything"
-          ? `https://newsapi.org/v2/everything?q=${query}&pageSize=20&language=en&sortBy=popularity&apiKey=${apiKey}`
+          ? `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=20&language=en&sortBy=popularity&apiKey=${apiKey}`
           : `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
       const newsResponse = await axios.get(url);
