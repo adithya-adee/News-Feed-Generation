@@ -90,3 +90,10 @@ Feel free to replace placeholders like `yourusername` and `your_news_api_key` wi
 I wanted to add some more details like calender, from which date the news can be accessed.
 I wanted to add more responsiveness and animation , because fo time contraint I have done it in 2 and half days.
 I wanted to add some more functionality like button for sports and business. I had added it but because of styling or responsiveness I have removed it
+
+
+## Glance of the website
+
+
+https://github.com/user-attachments/assets/2b8df83c-ef25-4c9a-ab29-342b213210bd
+
