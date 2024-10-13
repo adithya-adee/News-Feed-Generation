@@ -10,7 +10,7 @@ def main():
     content_no_numbers = re.sub(r'\d+', '', content)
     
     # I have Extracted keywords (only 2) per article the user reads 
-    keywords = kw_model.extract_keywords(content, top_n=2) 
+    keywords = kw_model.extract_keywords(content, top_n=2,stop_words="english",use_mmr=True) 
     keyword_list = [kw[0] for kw in keywords]  # Extract just the keywords (ignore scores)
     
     print(",".join(keyword_list))
